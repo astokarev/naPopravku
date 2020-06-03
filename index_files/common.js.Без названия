@@ -1,0 +1,32 @@
+// open modal
+var wrap = $('main'),
+btn = $('.start-form-btn'),
+modal = $('.cover, .modal, .modal-content');
+
+btn.on('click', function() {
+    modal.fadeIn();
+});
+// close modal
+$('.modal-close').click(function() {
+    modal.fadeOut();
+});
+//add chronic
+$('form').on("submit", function(){
+    event.preventDefault();
+})
+$('#chronic').change(function(e) {
+    let value = $('#chronic').val();
+    $('.chronic-item-box').append('<div class="chronic-item"><span>'+value+'</span><span class="delete-tag">x</span></div>');
+    $('#chronic').val('');
+});
+//delete_chronic 
+$(document).on('click','.delete-tag', function() {
+    $(this).parent().remove();
+})
+// RadioButton
+$('input[type="radio"]').each(function() {
+	$(this).click(function(){
+        $('.form-row input[type="radio"]').prop('checked', false);
+        $(this).prop('checked', 'true');
+	})
+});
